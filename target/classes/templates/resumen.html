@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Resumen Pedido</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/pedidos.css"></link>
+    </head>
+    <body>
+         <h1>Resumen de tu pedido</h1>
+       <div id="resumen">
+       
+       		<form th:action="@{/catalogo/submit/finpedido/{ref}(ref=${pedido.referencia})}" method="post">
+				<table>
+					<tr>
+						<th scope="col">Unidades</th>
+						<th scope="col">Producto</th>
+						<th scope="col">Coste Total</th>
+					</tr>
+					<tr th:each="pro : ${pedido.listaCantProdu}">
+				        <td th:text="${pro.cant}"></td>
+				        <td th:text="${pro.producto.nombre}"></td>
+				        <td th:text="${pro.producto.precio*pro.cant} + €"></td>
+				        <td></td>
+	        		</tr>
+	     		</table>
+				<div id="tipoenvio">
+		     		<h4>¿Qué tipo de envío seleccionamos?</h4>
+		     		<p>(Si no seleccionas ninguno, por defecto se marcará el envío certificado)</p>
+		     		Ordinario<input type="radio" name="envio" value="ordinario"/>
+		 	     	Certificado<input type="radio" name="envio" value="certificado" checked="checked"/><br><br>
+		     		<button type="submit" class="boton">Confirmar Pedido</button><button type="submit" class="boton"><a href="../cerrar">Cerrar Sesión</a></button>
+		     		
+	     		</div>
+	     	</form>
+	     </div>
+    </body>
+</html>
