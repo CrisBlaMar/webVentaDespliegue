@@ -56,6 +56,7 @@ public class Usuario {
 		this.direccion = direccion;
 	}
 	
+	
 	public Usuario(String usuario) {
 		this.user = usuario;
 	}
