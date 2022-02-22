@@ -19,11 +19,7 @@ class MiWebDeVentaMariaDbApplicationTests {
 	
 	@Test
 	void testGetUserName() {
-<<<<<<< HEAD
 		assertEquals("crisblamar", usuario.getUsuario());
-=======
-		assertEquals("ruieh", usuario.getUsuario());
->>>>>>> 0f415f313e53cf6b1d3b9f38a60158037bf9d2d2
 	}
 
 
